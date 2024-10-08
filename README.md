@@ -1,0 +1,1 @@
+This is an Easy API for educational purposes
