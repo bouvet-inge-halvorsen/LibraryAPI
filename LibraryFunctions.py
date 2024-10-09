@@ -1,12 +1,14 @@
+from pydantic import BaseModel, Field
 from Genre import Genre
 
-class Book:
+class Book(BaseModel):
+    ISBN: str = Field(...,description="The International Standard Book Number that is intended to be unique.", min_length=10, max_length=13)
+    title: str = Field(..., min_length=1)
+    author: list[str] = Field(..., min_length=1)
+    genre: Genre = Field(default=Genre.UNKNOWN)
 
-    def __init__(self, isbn: str, title: str, author: list, genre: Genre) -> None:
-        self.ISBN = isbn
-        self.title = title
-        self.author = author
-        self.genre = genre
+    def __init__(self, ISBN: str, title: str, author: list, genre: Genre = Genre.UNKNOWN) -> None:
+        super().__init__(ISBN = ISBN, title = title, author= author, genre = genre)
 
     def get_book(self) -> tuple:
         return (self.ISBN, self.title, )
@@ -30,19 +32,21 @@ class Book:
 class Library:
     def __init__(self) -> None:
         self.library_files: list[Book] = []
-        b: Book = Book(isbn="123-123-123", title="The testing of the Tests", author=["Willie Testerson"], genre=Genre.UNKNOWN)
+        b: Book = Book(ISBN="123-123-123-0", title="The testing of the Tests", author=["Willie Testerson"], genre=Genre.UNKNOWN)
         self.add_book(b)
 
     def add_book(self, book: Book) -> bool:
         self.library_files.append(book)
         return True
 
-    def remove_book(self, isbn) -> bool:
+    def remove_book(self, isbn:str) -> bool:
+        acc = 0
         for book in self.library_files:
-            if book.get_isbn == isbn:
-                self.library_files.remove(book)
+            if book.get_isbn() == isbn:
+                self.library_files.pop(acc)
                 return True
-            return False
+            acc+=1
+        return False
         
     def get_whole_library(self) -> dict:
         inc = 0
