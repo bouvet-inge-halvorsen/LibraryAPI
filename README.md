@@ -1,5 +1,8 @@
+# LibraryAPI
 
-# What is this think anyway?
+I recomend that you build a docker image, and start the thing in a container. Then it should be a easy thingy to work with the solution.
+
+## What is this think anyway?
 
 This is an Easy API for educational purposes.
 
@@ -9,5 +12,6 @@ There are some problems though.
 2: What other functionality can we expect from this API?
 3: can we use the codebase to write more tests?
 
-# To test the API
-run >pytest in the console
+## To test the API
+
+run >pytest in CLI.
