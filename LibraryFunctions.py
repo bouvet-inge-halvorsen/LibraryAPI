@@ -32,8 +32,6 @@ class Book(BaseModel):
 class Library:
     def __init__(self) -> None:
         self.library_files: list[Book] = []
-        b: Book = Book(ISBN="123-123-123-0", title="The testing of the Tests", author=["Willie Testerson"], genre=Genre.UNKNOWN)
-        self.add_book(b)
 
     def add_book(self, book: Book) -> bool:
         self.library_files.append(book)
