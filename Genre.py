@@ -1,9 +1,9 @@
 from enum import Enum
 
 class Genre(Enum):
-    UNKNOWN =0
-    FANTASY =1
-    BIOGRAPHY =2
-    DOCUMENTATION =3
-    REALLITY_FICTION =4
-    SCIFI =5
+    UNKNOWN = "Unknown"
+    FANTASY = "Fantasy"
+    BIOGRAPHY = "Biography"
+    DOCUMENTATION = "Documentation"
+    REALLITY_FICTION = "Reality Fiction"
+    SCIFI = "Sci-Fi"
