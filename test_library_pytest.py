@@ -11,6 +11,7 @@ def book_stack() -> list:
 def library() -> Library:
     return Library()
 
+# Tests for the application
 def test_add_book(library, book_stack):
     """Tests that a book can be added to the library"""
     assert library.add_book(book_stack[0]) == True
@@ -53,3 +54,14 @@ def test_should_not_be_able_to_add_a_book_that_already_exists(library, book_stac
 
     # If the book exists, return False
     assert library.add_book(book_stack[0]) == False
+
+def test_can_get_the_whole_library(library, book_stack):
+    # TODO: add a test that checks that we can get the whole program.
+
+    # TODO: The first thing we need to do, is to add two to three books into the library.
+
+    # TODO: As we have already tests that checks for the basic functionality, we can assume this works. But if we feel like it, go nuts!
+
+    # TODO: We need to know what the result will look like.
+
+    NotImplemented
